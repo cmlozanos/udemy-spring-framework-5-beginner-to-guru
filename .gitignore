@@ -28,3 +28,4 @@
 
 ### Others ###
 /projects/**/.gitignore
+/projects/**/bin/
