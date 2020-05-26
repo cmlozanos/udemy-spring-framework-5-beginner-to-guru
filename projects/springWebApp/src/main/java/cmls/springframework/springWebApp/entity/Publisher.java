@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -30,5 +32,6 @@ public class Publisher {
     private String zip;
 
     @OneToMany(mappedBy="publisher")
+	@JsonIgnore
     private Set<Book> books = new HashSet<>();
 }

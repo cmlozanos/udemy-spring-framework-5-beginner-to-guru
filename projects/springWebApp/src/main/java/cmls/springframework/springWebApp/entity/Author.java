@@ -3,9 +3,12 @@ package cmls.springframework.springWebApp.entity;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,7 +29,8 @@ public class Author {
 	private String firstName;
 	private String lastName;
 	
-	@ManyToMany(mappedBy = "authors")
+	@ManyToMany(mappedBy = "authors", fetch = FetchType.LAZY)
+	@JsonIgnore
 	private Set<Book> books;
 
 }

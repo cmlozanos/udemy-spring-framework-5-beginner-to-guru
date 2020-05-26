@@ -33,12 +33,13 @@ public class Book {
     private String isbn;
     
     @ManyToOne(fetch = FetchType.LAZY)
-	@JsonIgnore
+    @JsonIgnore
     private Publisher publisher;
     
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"),
             inverseJoinColumns = @JoinColumn(name = "author_id"))
+    @JsonIgnore
     private Set<Author> authors;
 
 
